@@ -17,6 +17,7 @@ For email use- /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Boundaries](#boundaries)
 - [Back-references](#back-references)
+- [Greedy and Lazy Match](#greedy-and-lazy-match)
 - [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 # Regex Components
@@ -76,6 +77,14 @@ Regular expressions may have flags that affect the search.Expression flags chang
 Backreferences match the same text as previously matched by a capturing group. Suppose you want to match a pair of opening and closing HTML tags, and the text in between. By putting the opening tag into a backreference, we can reuse the name of the tag for the closing tag.
 
 For Example: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/ This regex contains only one pair of parentheses, which capture the string matched by [a-z][0-9]*. This is the opening HTML tag. The backreference \1 references the first capturing group. \1 matches the exact same text that was matched by the first capturing group. The / before it is a literal character. It is simply the forward slash in the closing HTML tag that we are trying to match.
+
+### Greedy and Lazy Match
+
+* 'Greedy' means matching the longest possible string.
+    A Greedy quantifier tells the engine to match as many instances of its quantified token or subpattern as possible. This behavior is called greedy.
+
+* 'Lazy' means matching the shortest possible string.
+    A lazy quantifier tells the engine to match as few of the quantified tokens as needed. As you'll see in the table below, a regular quantifier is made lazy by appending a ? question mark to it.
 
 ### Look-ahead and Look-behind
 
