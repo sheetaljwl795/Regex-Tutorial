@@ -41,7 +41,24 @@ e.g to find three bracket expressions: [0-9], [a-z], and [_.-].[0-9] denotes any
 Inside a character class, the dot loses its special meaning and matches a literal dot.
   3)"\" For characters that are usually treated literally, indicates that the next character is special and not to be interpreted literally. For example, /b/ matches the character "b". By placing a backslash in front of "b", that is by using /\b/, the character becomes special to mean match a word boundary.
 For characters that are usually treated specially, indicates that the next character is not special and should be interpreted literally. For example, "*" is a special character that means 0 or more occurrences of the preceding character should be matched; for example, /a*/ means match 0 or more "a"s. To match * literally, precede it with a backslash; for example, /a\*/ matches "a*".
-  
+
+### Back-references
+
+Backreferences match the same text as previously matched by a capturing group. Suppose you want to match a pair of opening and closing HTML tags, and the text in between. By putting the opening tag into a backreference, we can reuse the name of the tag for the closing tag.
+
+For Example: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/ This regex contains only one pair of parentheses, which capture the string matched by [a-z][0-9]*. This is the opening HTML tag. The backreference \1 references the first capturing group. \1 matches the exact same text that was matched by the first capturing group. The / before it is a literal character. It is simply the forward slash in the closing HTML tag that we are trying to match.
+
+### Look-ahead and Look-behind
+
+(?=ABC) is a postive lookahead and it matches a group after the main expression without including it in the result.
+
+(?!ABC) is a negitive lookahead and it specifies a group that can not match after the main expression (if it matches, the result is discarded)
+
+(?<=ABC>) is a postive lookbehind and matches a group before the main expression without including it in the result.
+
+(?<!ABC) is a negitive lookbehind and Specifies a group that can not match before the main expression (if it matches, the result is discarded).
+
+ 
 ### Character Escapes
   1) Escaping Using Backslash - We know that the backslash character is an escape character in Java String literals as well. Therefore, we need to double the backslash character when using it to precede any character (including the \ character itself).
   
