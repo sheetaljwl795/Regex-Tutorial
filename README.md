@@ -3,16 +3,18 @@
 ### Summery
 
 Regular expressions are a way to describe patterns in a string data. They form a small language of its own, which is a part of many programming languages like Javascript, Perl, Python, Php, and Java.There are two ways to create a regular expression in Javascript. It can be either created with RegExp constructor, or by using forward slashes ( / ) to enclose the pattern.
-A character class are matches any one of the enclosed characters. You can specify a range of characters by using a hyphen, but if the hyphen appears as the first or last character enclosed in the square brackets, it is taken as a literal hyphen to be included in the character class as a normal character.RegEx is really good at matching patterns and extracting values from found patterns. Matching URL,find output/input data,email,password,username.
+A character class are matches any one of the enclosed characters. You can specify a range of characters by using a hyphen, but if the hyphen appears as the first or last character enclosed in the square brackets, it is taken as a literal hyphen to be included in the character class as a normal character.RegEx is really good at matching patterns and extracting values from found patterns. Matching URL,find output/input data,email,password,username. For email use- /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 # Regex Components
 
 ### Anchors
-"^" is used for matching the beginning of input. If the multiline flag is set to true, also matches immediately after a line break character. For example, /^A/ does not match the "A" in "an A", but does match the first "A" in "An A".
-"$" is used for Matches the end of input. If the multiline flag is set to true, also matches immediately before a line break character. For example, /t$/ does not match the "t" in "eater", but does match it in "eat".
-"\b" is used to find a word boundary. This is the position where a word character is not followed or preceded by another word-character, such as between a letter and a space.
-"\B" Matches a non-word boundary. This is a position where the previous and next character are of the same type: Either both must be words, or both must be non-words, for example between two letters or between two spaces. The beginning and end of a string are considered non-words.
 
+"^" is used for matching the beginning of input. If the multiline flag is set to true, also matches immediately after a line break character. For example, /^A/ does not match the "A" in "an A", but does match the first "A" in "An A".
+For email 
+These are special sequences which match an empty substring:
+^ matches at the beginning of the target string
+$ matches at the end of the target string
+\b matches on a word boundary, i.e., the previous or subsequent character is not a word character
 ### Quantifiers
 
 ? may also be used as Qualifier. Eg x(?=y)can be used Matches "x" only if "x" is followed by "y". For example, /Jack(?=Sprat)/ matches "Jack" only if it is followed by "Sprat"./Jack(?=Sprat|Frost)/ matches "Jack" only if it is followed by "Sprat" or "Frost". However, neither "Sprat" nor "Frost" is part of the match results.
