@@ -10,15 +10,16 @@ A character class are matches any one of the enclosed characters. You can specif
 ### Anchors
 
 "^" is used for matching the beginning of input. If the multiline flag is set to true, also matches immediately after a line break character. For example, /^A/ does not match the "A" in "an A", but does match the first "A" in "An A".
-For email 
-These are special sequences which match an empty substring:
+For email -These are special sequences which match an empty substring:
 ^ matches at the beginning of the target string
 $ matches at the end of the target string
 \b matches on a word boundary, i.e., the previous or subsequent character is not a word character
+
 ### Quantifiers
 
-? may also be used as Qualifier. Eg x(?=y)can be used Matches "x" only if "x" is followed by "y". For example, /Jack(?=Sprat)/ matches "Jack" only if it is followed by "Sprat"./Jack(?=Sprat|Frost)/ matches "Jack" only if it is followed by "Sprat" or "Frost". However, neither "Sprat" nor "Frost" is part of the match results.
-(?<=y)x is used to Matches "x" only if "x" is preceded by "y". For example, /(?<=Jack)Sprat/ matches "Sprat" only if it is preceded by "Jack". /(?<=Jack|Tom)Sprat/ matches "Sprat" only if it is preceded by "Jack" or "Tom". However, neither "Jack" nor "Tom" is part of the match results.
+Quantifiers indicate numbers of characters or expressions to match. 
+For eg ([a-z0-9_\.-]+) It will match ny string that contains a-z, 0-9, _, ., or -. The quantifier + means that it has to contain at least one of this in order to have a match.? may also be used as Qualifier. Eg x(?=y)can be used Matches "x" only if "x" is followed by "y". For example, /Jack(?=Sprat)/ matches "Jack" only if it is followed by "Sprat"./Jack(?=Sprat|Frost)/ matches "Jack" only if it is followed by "Sprat" or "Frost". However, neither "Sprat" nor "Frost" is part of the match results.
+
 
 ### Grouping Constructs
 
