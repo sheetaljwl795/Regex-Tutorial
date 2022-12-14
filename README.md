@@ -9,9 +9,9 @@ For email use- /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 # Table Content
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
-- [Grouping Constructs](#Grouping Constructs)
+- [Grouping Constructs](#grouping Constructs)
 - [OR Operator](#or-operator)
-- [Bracket Expressions](#Bracket Expressions)
+- [Bracket Expressions](#bracket Expressions)
 - [Character Classes](#character-classes)
 - [Flags](#flags)
 - [Grouping and Capturing](#grouping-and-capturing)
