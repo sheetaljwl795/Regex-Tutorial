@@ -23,11 +23,13 @@ For eg ([a-z0-9_\.-]+) It will match ny string that contains a-z, 0-9, _, ., or 
 
 ### Grouping Constructs
 
-We can use (?<Name>x) Matches "x" and stores it on the groups property of the returned matches under the name specified by <Name>. The angle brackets (< and >) are required for group name. To extract the United States area code from a phone number, we could use /\((?<area>\d\d\d)\)/. The resulting number would appear under matches.groups.area.
-  
+Groups use the ( ) symbols (like alternations, but the | symbol is not needed). They are useful for creating blocks of patterns, so you can apply repetitions or other modifiers to them as a whole. In the pattern ([a-x]{3}[0-9])+, the + metacharacter is applied to the whole group.
+For email it will try to find all the groups 1)([a-z0-9_\.-]+) 2)([\da-z\.-]+) 3)([a-z\.]{2,6})
+
+ 
   ### Bracket Expressions
   
-  Brackets indicate a set of characters to match. Any individual character between the brackets will match, and you can also use a hyphen to define a set.
+  Brackets indicate a set of characters to match. Any individual character between the brackets will match, and you can also use a hyphen to define a set.For email /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
   
 e.g to find three bracket expressions: [0-9], [a-z], and [_.-].[0-9] denotes any number between 0 and 9. [a-z] denotes any lowercase leter from a to z. If you wanted to also include uppercase letters, you would need to use [a-zA-Z]. Lastly, [.-] denotes the special characters that can be used: underscore (), backwards slash (/), period (.), and dash (-).
 
