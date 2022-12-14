@@ -9,15 +9,14 @@ For email use- /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 # Table Content
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
-- [Grouping Constructs](#grouping Constructs)
+- [Grouping-Constructs](#grouping-constructs)
 - [OR Operator](#or-operator)
-- [Bracket Expressions](#bracket Expressions)
+- [Bracket-Expressions](#bracket-expressions)
 - [Character Classes](#character-classes)
 - [Flags](#flags)
 - [Grouping and Capturing](#grouping-and-capturing)
-- [Boundaries](#boundaries)
 - [Back-references](#back-references)
-- [Greedy and Lazy Match](#greedy-and-lazy-match)
+- [Greedy-and-Lazy-Match](#greedy-and-lazy-match)
 - [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 # Regex Components
