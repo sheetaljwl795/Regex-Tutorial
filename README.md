@@ -6,6 +6,9 @@ Regular expressions are a way to describe patterns in a string data. They form a
 A character class are matches any one of the enclosed characters. You can specify a range of characters by using a hyphen, but if the hyphen appears as the first or last character enclosed in the square brackets, it is taken as a literal hyphen to be included in the character class as a normal character.RegEx is really good at matching patterns and extracting values from found patterns. Matching URL,find output/input data,email,password,username.
 For email use- /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
+# Table Content
+[Anchors] [#Anchors]
+
 # Regex Components
 
 ### Anchors
