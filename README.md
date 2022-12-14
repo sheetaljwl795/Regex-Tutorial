@@ -7,7 +7,17 @@ A character class are matches any one of the enclosed characters. You can specif
 For email use- /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 # Table Content
-[Anchors] [#Anchors]
+- [Anchors](#anchors)
+- [Quantifiers](#quantifiers)
+- [Grouping Constructs] (#Grouping Constructs)
+- [OR Operator](#or-operator)
+- [Bracket Expressions] (#Bracket Expressions)
+- [Character Classes](#character-classes)
+- [Flags](#flags)
+- [Grouping and Capturing](#grouping-and-capturing)
+- [Boundaries](#boundaries)
+- [Back-references](#back-references)
+- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 # Regex Components
 
@@ -30,6 +40,11 @@ For eg ([a-z0-9_\.-]+) It will match ny string that contains a-z, 0-9, _, ., or 
 Groups use the ( ) symbols (like alternations, but the | symbol is not needed). They are useful for creating blocks of patterns, so you can apply repetitions or other modifiers to them as a whole. In the pattern ([a-x]{3}[0-9])+, the + metacharacter is applied to the whole group.
 For email it will try to find all the groups 1)([a-z0-9_\.-]+) 2)([\da-z\.-]+) 3)([a-z\.]{2,6})
 
+### Or Operator
+
+* `|` Acts like a boolean OR. Matches the expression before or after the |.
+It can operate within a group, or on a whole expression. The patterns will be tested in order. Just as in java will match either set of characters. It will look for this OR that.
+
  
   ### Bracket Expressions
   
@@ -45,6 +60,16 @@ e.g to find three bracket expressions: [0-9], [a-z], and [_.-].[0-9] denotes any
 Inside a character class, the dot loses its special meaning and matches a literal dot.
   3)"\" For characters that are usually treated literally, indicates that the next character is special and not to be interpreted literally. For example, /b/ matches the character "b". By placing a backslash in front of "b", that is by using /\b/, the character becomes special to mean match a word boundary.
 For characters that are usually treated specially, indicates that the next character is not special and should be interpreted literally. For example, "*" is a special character that means 0 or more occurrences of the preceding character should be matched; for example, /a*/ means match 0 or more "a"s. To match * literally, precede it with a backslash; for example, /a\*/ matches "a*".
+### Flags
+Regular expressions may have flags that affect the search.Expression flags change how the expression is interpreted.
+
+* `i` Ignores case
+* `g` Global search retain the index of the last match, allowing subsequent searches to start from the end of the previous match. Without the global flag, subsequent searches will return the same match.
+* `m` Multiline flag When the multiline flag is enabled, beginning and end anchors (^ and $) will match the start and end of a line, instead of the start and end of the whole string.
+* `u` Unicode
+* `y` The expression will only match from its lastIndex position and ignores the global (g) flag if set. Because each search in RegExr is discrete, this flag has no further impact on the displayed results.
+* `s` Dot (.) will match any character, including newline.
+
 
 ### Back-references
 
@@ -61,31 +86,7 @@ For Example: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/ This regex contai
 (?<=ABC>) is a postive lookbehind and matches a group before the main expression without including it in the result.
 
 (?<!ABC) is a negitive lookbehind and Specifies a group that can not match before the main expression (if it matches, the result is discarded).
-
  
-### Character Escapes
-  1) Escaping Using Backslash - We know that the backslash character is an escape character in Java String literals as well. Therefore, we need to double the backslash character when using it to precede any character (including the \ character itself).
-  
-  @Test
-public void givenRegexWithDotEsc_whenMatchingStr_thenNotMatching() {
-    String strInput = "foof";
-    String strRegex = "foo\\.";
-
-    assertEquals(false, strInput.matches(strRegex));
-}
-  
-  2) Escaping Using \Q & \E
-   we can use \Q and \E to escape the special character. \Q indicates that all characters up to \E needs to be escaped and \E means we need to end the escaping that was started with \Q.
-  
-  Here, the escaping is done by placing the pipe character between \Q and \E:
-  @Test
-public void givenRegexWithPipeEscaped_whenSplitStr_thenSplits() {
-    String strInput = "foo|bar|hello|world";
-    String strRegex = "\\Q|\\E";
-    
-    assertEquals(4, strInput.split(strRegex).length);
-}
-  
   
   ## Sources
   
